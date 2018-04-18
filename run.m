@@ -12,7 +12,7 @@
 %   Copyright @ Hybrid Systems Laboratory (HSL),
 %   Revision: 0.0.0.3 Date: 05/20/2015 3:42:00
 
-global A M T1 T2 T1_d T2_d q last_del
+global A M L T1 T2 T1_d T2_d q last_del
 
 T1 = 1;
 T2 = 1;
@@ -20,10 +20,9 @@ T1_d = 0.1;
 T2_d = 0.2;
 A = 1;    
 M = 1;
+L = 1.1 - exp(-1);
 q = 0;
 last_del = 0;
-
-%M = [1 1];
 
 % plant initial conditions
 % z1_0 = rand(1)*10;
@@ -120,47 +119,9 @@ grid on
 ylabel('$y_{meas}$','Interpreter','latex','FontSize',20)
 xlabel('$t$','Interpreter','latex','FontSize',20)
 
-figure(6)
-plot(t,x(:,6),t,x(:,8),t,x(:,11));
-
-figure(7) % position
+figure(6) % position
 clf
 plotHarc(t,j,x(:,1) - x(:,2));
 grid on
 ylabel('$|\varepsilon|$','Interpreter','latex','FontSize',50)
 xlabel('$t,j$','Interpreter','latex','FontSize',50)
-
-% % plot phase plane
-% figure(3) % position
-% clf
-% plotHarcColor(x(:,1),j,x(:,2),t);
-% xlabel('x_1')
-% ylabel('x_2')
-% grid on
-
-% plot hybrid arc
-% figure(3)
-% plotHybridArc(t,j,x)
-% xlabel('j')
-% ylabel('t')
-% zlabel('x1')
-% grid on
-% 
-% mgh = x(:,1)*9.8;
-% mv = 0.5*(x(:,2)).^2;
-% 
-% totJ = mgh + mv;
-% 
-% figure(4) % energy
-% clf
-% subplot(2,1,1), plotHarc(t,j,mgh);
-% grid on
-% ylabel('potential energy')
-% subplot(2,1,2), plotHarc(t,j,mv);
-% grid on
-% ylabel('kinetic energy')
-% 
-% figure(5)
-% clf
-% plotHarc(t,j,totJ)
-% grid on

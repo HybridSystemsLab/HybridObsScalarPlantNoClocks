@@ -28,10 +28,8 @@ function xplus = g(x)
     tP_m = x(10);
     m = x(11);
 
-    global A T1 T2 T1_d T2_d M
+    global A T1 T2 T1_d T2_d M L
     
-    L = 1.1 - exp(-1);
-   
     if (tauP > 8)
         display(tauP);
     end
